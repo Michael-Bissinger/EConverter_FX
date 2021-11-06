@@ -3,9 +3,12 @@ package ecommerce.converter;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -36,8 +39,9 @@ public class Main extends Application{
         ObservableList<String> options =
                 FXCollections.observableArrayList(
                         "Amazon",
-                        "Option 2",
-                        "Option 3"
+                        "Carrefour",
+                        "Conrad",
+                        "eBay"
                 );
         final ComboBox platforms_box = new ComboBox(options);
 
@@ -53,6 +57,9 @@ public class Main extends Application{
         grid.setVgap(10);
         grid.setPadding(new Insets(25,25,25,25));
 
+        Button btn = new Button();
+        btn.setText("Starte Konvertierung!");
+
         // Add to GridPane
 
         grid.add(lbl_rawfile, 0, 0, 1, 1);
@@ -64,12 +71,26 @@ public class Main extends Application{
         grid.add(lbl_newfile, 0, 2, 1, 1);
         grid.add(directory_newfile, 1, 2, 1, 1);
 
+        grid.add(btn, 1, 3, 1, 1);
+
         // ****** Scene setup ********
         Scene scene = new Scene(grid, 500, 500);
 
         primaryStage.setTitle("E-Commerce converter");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        // Start programm
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                System.out.println("Konvertierung startet!");
+
+            }
+        });
+
+
 
     }
 }
