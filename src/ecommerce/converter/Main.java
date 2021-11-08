@@ -86,14 +86,17 @@ public class Main extends Application{
             public void handle(ActionEvent event) {
 
                 if (platforms_box.getSelectionModel().getSelectedItem() != null) {
-                    System.out.println("Ist okay!");
+
+                    ConvertMain.start(platforms_box.getSelectionModel().getSelectedItem().toString());
+
+
                 } else {
 
-                    System.out.println("Ist leer!");
+                    System.out.println("Plattform muss ausgewählt werden!");
                 }
 
-                System.out.println(platforms_box.getSelectionModel().getSelectedItem());
-                System.out.println("Konvertierung startet!");
+                //System.out.println(platforms_box.getSelectionModel().getSelectedItem());
+                //System.out.println("Konvertierung startet!");
 
             }
         });
