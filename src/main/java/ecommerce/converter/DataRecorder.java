@@ -1,5 +1,7 @@
 package ecommerce.converter;
 
+
+
 public class DataRecorder {
 
     public static void loadData (String platform, String filepath_original) {
@@ -30,6 +32,7 @@ public class DataRecorder {
             case "Manomano":
 
                 // TODO: Get data from .csv-file
+                getDataCsv(platform);
 
                 // TODO:
 
@@ -70,4 +73,24 @@ public class DataRecorder {
 
         // TODO: Rename new file to orginal
     }
+
+
+    static void getDataCsv(String platform) {
+
+        // https://www.baeldung.com/opencsv
+        // http://opencsv.sourceforge.net/#quick_start
+
+        switch (platform) {
+            case "Manomano":
+
+
+
+                break;
+            default:
+                System.out.println("Plattform kan nicht eingelesen werden");
+                break;
+        }
+
+    }
+
 }

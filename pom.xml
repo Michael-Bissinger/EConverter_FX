@@ -1,11 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.openjfx</groupId>
-    <artifactId>hellofx</artifactId>
+    <groupId>ecommerce.converter</groupId>
+    <artifactId>converter</artifactId>
     <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <name>demo</name>
+    <version>1</version>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -20,6 +19,12 @@
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.3</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -31,6 +36,25 @@
                     <mainClass>HelloFX</mainClass>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Import-Package>
+                            !org.apache.log,
+                            !org.apache.avalon.framework.logger
+                        </Import-Package>
+                        <Embed-Dependency>*;
+                            |opencsv
+                        </Embed-Dependency>
+                        <Embed-Transitive>true</Embed-Transitive>
+                    </instructions>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 </project>
