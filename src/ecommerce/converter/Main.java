@@ -24,6 +24,11 @@ public class Main extends Application{
         //Scene scene = new Scene(new Label("Foo"));
         //Scene scene = new Scene(new GridPane(), 500, 500);
 
+
+        // Drag and Drop
+        //TODO: https://stackoverflow.com/questions/32534113/javafx-drag-and-drop-a-file-into-a-program
+
+
         // Controls
         final TextField directory_rawfile = new TextField();
 
@@ -41,7 +46,8 @@ public class Main extends Application{
                         "Amazon",
                         "Carrefour",
                         "Conrad",
-                        "eBay"
+                        "eBay",
+                        "Manomano"
                 );
         final ComboBox platforms_box = new ComboBox(options);
 
@@ -87,7 +93,8 @@ public class Main extends Application{
 
                 if (platforms_box.getSelectionModel().getSelectedItem() != null) {
 
-                    ConvertMain.start(platforms_box.getSelectionModel().getSelectedItem().toString());
+                    String filepath = "abc"; // TODO: Get real filepath by Drag and Drop
+                    ConvertMain.start(platforms_box.getSelectionModel().getSelectedItem().toString(), filepath);
 
 
                 } else {
@@ -102,6 +109,19 @@ public class Main extends Application{
         });
 
 
+
+
+
+    }
+
+
+    static void restartSoftware() {
+
+        // TODO: Delete files in Work-Directories
+        System.out.println("Work-Directories are cleaned!");
+
+        // Reset Platform-choice
+        //platforms_box.
 
     }
 }
