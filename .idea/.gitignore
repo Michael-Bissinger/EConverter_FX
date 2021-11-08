@@ -1,6 +1,8 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-/.idea/ressources/finaldestination/*
-/.idea/ressources/original/*
-/.idea/ressources/workspace/*
+
+
+/ressources/finaldestination/*
+/ressources/original/*
+/ressources/workspace/*
